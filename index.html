@@ -416,6 +416,57 @@ button:active{
   background:#ffffff;
   color:#7b315d;
     }
+  /* ===== RAJA WORLD INTRO ===== */
+
+.world-intro{
+  text-align:center;
+  animation:worldIntro 1s ease both;
+}
+
+.world-decor{
+  font-size:32px;
+  margin-bottom:10px;
+  animation:worldFloat 2s ease-in-out infinite;
+}
+
+.world-sub{
+  color:#7b315d;
+  font-size:17px;
+  margin-top:-15px;
+  margin-bottom:25px;
+  animation:worldSub 1s ease .4s both;
+}
+
+@keyframes worldIntro{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.85);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes worldFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+@keyframes worldSub{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
   
 </style>
 </head>
@@ -643,9 +694,21 @@ button:active{
 
 <div id="mainWebsite">
 
+<div class="world-intro">
+
+  <div class="world-decor">
+    ✨ 🐼 💗 🐼 ✨
+  </div>
+
   <h1 class="main-title">
     👑 Welcome to Raja's World 👑
   </h1>
+
+  <div class="world-sub">
+    A little world made just for you ✨
+  </div>
+
+</div>
 
 
   <!-- ================= MENU ================= -->
