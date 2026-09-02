@@ -575,6 +575,56 @@ button:active{
     transform:translateY(-10px);
   }
 }
+  /* ===== EXTRA CARTOON MOVEMENTS ===== */
+
+.cartoon-boy{
+  display:inline-block;
+  animation:boyFunny 3s ease-in-out infinite;
+}
+
+@keyframes boyFunny{
+  0%,20%{
+    transform:translateX(-5px) rotate(-5deg);
+  }
+
+  35%{
+    transform:translateX(0) rotate(5deg);
+  }
+
+  45%{
+    transform:translateY(-18px) rotate(-8deg);
+  }
+
+  55%{
+    transform:translateY(0) rotate(8deg);
+  }
+
+  70%{
+    transform:translateX(5px) rotate(-5deg);
+  }
+
+  100%{
+    transform:translateX(-5px) rotate(-5deg);
+  }
+}
+
+.cartoon-shadow{
+  font-size:35px;
+  display:block;
+  margin-top:-20px;
+  opacity:.45;
+  animation:shadowMove 3s ease-in-out infinite;
+}
+
+@keyframes shadowMove{
+  0%,100%{
+    transform:scaleX(.8);
+  }
+
+  50%{
+    transform:scaleX(1.2);
+  }
+}
   
 </style>
 </head>
