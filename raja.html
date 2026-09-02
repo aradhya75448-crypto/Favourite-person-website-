@@ -7,372 +7,960 @@
 <title>Raja 👑 | Birthday Surprise</title>
 
 <style>
-* {
-  box-sizing: border-box;
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffe6f2, #e9e2ff);
-  color: #333;
-  text-align: center;
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffd6e7,#e8d5ff,#d6f5ff);
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-.container {
-  max-width: 850px;
-  margin: auto;
-  padding: 30px 15px 50px;
+/* ================= SURPRISE SCREENS ================= */
+
+.screen{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  padding:25px 18px;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation:fade .6s ease;
+  margin:auto;
 }
 
-h1 {
-  font-size: 30px;
-  margin-bottom: 8px;
+.screen.active{
+  display:flex;
 }
 
-.subtitle {
-  margin-bottom: 25px;
-  font-size: 16px;
-}
-
-.menu {
-  display: grid;
-  gap: 13px;
-  max-width: 600px;
-  margin: 25px auto;
-}
-
-.menu button {
-  border: none;
-  padding: 16px;
-  border-radius: 18px;
-  background: white;
-  font-size: 17px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
-}
-
-.menu button:active {
-  transform: scale(0.98);
-}
-
-.section {
-  display: none;
-  margin-top: 25px;
-}
-
-.section.active {
-  display: block;
-}
-
-.section h2 {
-  font-size: 24px;
-}
-
-.text-box {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  margin: 15px auto;
-  max-width: 650px;
-  line-height: 1.6;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  background: white;
-  border-radius: 18px;
-  padding: 5px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
-}
-
-.share {
-  margin-top: 25px;
-  border: none;
-  padding: 13px 24px;
-  border-radius: 25px;
-  background: white;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.back {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 22px;
-  background: white;
-  color: #333;
-  text-decoration: none;
-  border-radius: 25px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-}
-
-.song-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: white;
-  padding: 15px 18px;
-  margin: 12px auto;
-  max-width: 500px;
-  border-radius: 18px;
-  text-decoration: none;
-  color: #333;
-  font-size: 17px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.song-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
-}
-
-.play-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #f3e8ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-}
-
-.song-card:active {
-  transform: scale(0.97);
-}
-
-@media (max-width: 500px) {
-  .gallery {
-    grid-template-columns: 1fr;
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:scale(.9);
   }
-
-  .gallery img {
-    height: 300px;
+  to{
+    opacity:1;
+    transform:scale(1);
   }
 }
+
+.emoji{
+  font-size:85px;
+  margin-bottom:15px;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  50%{
+    transform:translateY(-12px);
+  }
+}
+
+.screen h1{
+  color:#7b315d;
+  font-size:30px;
+  margin-bottom:14px;
+}
+
+.screen p{
+  color:#59384a;
+  font-size:17px;
+  line-height:1.6;
+  margin-bottom:22px;
+}
+
+button{
+  border:0;
+  padding:14px 27px;
+  margin:7px;
+  border-radius:30px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:#ff70a6;
+  color:white;
+  box-shadow:0 5px 15px #0002;
+}
+
+button:active{
+  transform:scale(.97);
+}
+
+.no{
+  background:#999;
+}
+
+.card{
+  background:#ffffffaa;
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:22px;
+  width:100%;
+  box-shadow:0 10px 30px #0002;
+}
+
+.penguins{
+  display:flex;
+  gap:10px;
+  margin:18px 0;
+}
+
+.penguin{
+  background:white;
+  border-radius:20px;
+  padding:18px 12px;
+  font-size:52px;
+  cursor:pointer;
+  box-shadow:0 5px 15px #0002;
+}
+
+.photo{
+  width:100%;
+  max-width:330px;
+  height:330px;
+  object-fit:contain;
+  border-radius:22px;
+  background:white;
+  padding:7px;
+  box-shadow:0 8px 25px #0003;
+}
+
+.counter{
+  margin-top:12px;
+  font-size:15px;
+  color:#7b315d;
+}
+
+/* ================= MAIN WEBSITE ================= */
+
+#mainWebsite{
+  display:none;
+  min-height:100vh;
+  padding:25px 15px;
+}
+
+#mainWebsite.active{
+  display:block;
+}
+
+.main-title{
+  text-align:center;
+  color:#7b315d;
+  margin:20px 0 25px;
+  font-size:32px;
+}
+
+.menu{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.menu button{
+  width:100%;
+  margin:0;
+  background:white;
+  color:#633b55;
+  border-radius:20px;
+  padding:17px;
+  box-shadow:0 5px 15px #0002;
+}
+
+.section{
+  display:none;
+  max-width:650px;
+  margin:25px auto;
+  text-align:center;
+  animation:fade .5s ease;
+}
+
+.section.active{
+  display:block;
+}
+
+.section h2{
+  color:#7b315d;
+  margin-bottom:20px;
+}
+
+.text-box{
+  background:#ffffffbb;
+  backdrop-filter:blur(10px);
+  padding:22px;
+  border-radius:22px;
+  line-height:1.7;
+  color:#59384a;
+  box-shadow:0 8px 25px #0002;
+  margin-bottom:20px;
+}
+
+.back{
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 20px;
+  border-radius:25px;
+  background:white;
+  color:#7b315d;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 5px 15px #0002;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  background:white;
+  padding:5px;
+  box-shadow:0 5px 15px #0002;
+}
+
+.gallery video{
+  width:100%;
+  grid-column:1 / -1;
+  margin-top:5px;
+  background:white;
+}
+
+/* ================= SONGS ================= */
+
+.song-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:white;
+  padding:15px 18px;
+  margin:12px auto;
+  max-width:500px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#333;
+  font-size:17px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,0.10);
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+
+.song-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.14);
+}
+
+.play-icon{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#f3e8ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+.song-card:active{
+  transform:scale(.97);
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:25px;
+  animation:float 5s linear infinite;
+  pointer-events:none;
+  z-index:999;
+}
+
+@keyframes float{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- ================= SURPRISE START ================= -->
 
-  <h1>👑 The Birthday Boy — Raja 🎂</h1>
+<section class="screen active" id="s1">
 
-  <p class="subtitle">
-    A little corner made specially for Raja 💗✨
+  <div class="emoji">🎁</div>
+
+  <h1>I have a surprise for you...</h1>
+
+  <p>
+    But first, you have to accept this little gift 💗
   </p>
+
+  <button onclick="next('s2')">
+    YES! 🎀
+  </button>
+
+  <button class="no" onclick="next('no')">
+    NO 😭
+  </button>
+
+</section>
+
+
+<!-- ================= NO SCREEN ================= -->
+
+<section class="screen" id="no">
+
+  <div class="emoji">🥺</div>
+
+  <h1>Are you sure?</h1>
+
+  <p>
+    That was definitely the wrong button 😭
+  </p>
+
+  <button onclick="next('s2')">
+    Okay okay! 💗
+  </button>
+
+</section>
+
+
+<!-- ================= PENGUIN ================= -->
+
+<section class="screen" id="s2">
+
+  <div class="emoji">🐧</div>
+
+  <h1>Choose your penguin!</h1>
+
+  <p>
+    One of them has your surprise 👀
+  </p>
+
+  <div class="penguins">
+
+    <div class="penguin" onclick="next('s3')">
+      🐧
+    </div>
+
+    <div class="penguin" onclick="next('s3')">
+      🐧
+    </div>
+
+    <div class="penguin" onclick="next('s3')">
+      🐧
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BIRTHDAY ================= -->
+
+<section class="screen" id="s3">
+
+  <div class="emoji">🎂</div>
+
+  <h1>HAPPY BIRTHDAY! 🎉</h1>
+
+  <p>
+    To one of the most special people in my life. 💗
+    <br>
+    I hope your day is full of happiness and smiles!
+  </p>
+
+  <button onclick="next('photos')">
+    Look at our memories 📸
+  </button>
+
+</section>
+
+
+<!-- ================= PHOTO SLIDER ================= -->
+
+<section class="screen" id="photos">
+
+  <h1>Raja's Gallery 💕</h1>
+
+  <p>
+    Every picture has a little story. 🫶
+  </p>
+
+  <div class="card">
+
+    <img
+      id="memoryPhoto"
+      class="photo"
+      src="Screenshot_20260902_102924_Instagram.jpg"
+    >
+
+    <div class="counter">
+      <span id="photoNumber">1</span> / 9
+    </div>
+
+    <div>
+
+      <button onclick="previousPhoto()">
+        ⬅️
+      </button>
+
+      <button onclick="nextPhoto()">
+        ➡️
+      </button>
+
+    </div>
+
+    <button onclick="next('hug')">
+      Continue 💗
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HUG ================= -->
+
+<section class="screen" id="hug">
+
+  <div class="emoji">🫂</div>
+
+  <h1>A BIG HUG FOR YOU!</h1>
+
+  <p>
+    Sending you the biggest virtual hug ever. 🥹💗
+    <br><br>
+    Keep smiling always!
+  </p>
+
+  <button onclick="next('final')">
+    One last thing... 👀
+  </button>
+
+</section>
+
+
+<!-- ================= FINAL ================= -->
+
+<section class="screen" id="final">
+
+  <div class="emoji">❤️</div>
+
+  <h1>You are truly special 💗</h1>
+
+  <div class="card">
+
+    <p>
+      Thank you for being such a beautiful part of my life.
+      <br><br>
+      Stay happy, keep smiling,
+      and never forget how special you are. 🫶
+      <br><br>
+      <b>Lots of love ❤️</b>
+    </p>
+
+  </div>
+
+  <button onclick="openWebsite()">
+    Enter Raja's World 👑
+  </button>
+
+  <button onclick="location.reload()">
+    Replay 🔄
+  </button>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ================= RAJA WEBSITE ================== -->
+<!-- ================================================= -->
+
+<div id="mainWebsite">
+
+  <h1 class="main-title">
+    👑 Welcome to Raja's World 👑
+  </h1>
+
+
+  <!-- ================= MENU ================= -->
 
   <div class="menu">
 
-  <button onclick="showSection('about')">
-    ✨ All About Raja ✨
-  </button>
+    <button onclick="showSection('about')">
+      ✨ All About Raja ✨
+    </button>
 
-  <button onclick="showSection('birthday')">
-    👑 The Birthday Boy — Raja
-  </button>
+    <button onclick="showSection('birthday')">
+      👑 The Birthday Boy — Raja
+    </button>
 
-  <button onclick="showSection('gallery')">
-    📸 Raja’s Little Gallery
-  </button>
+    <button onclick="showSection('gallery')">
+      📸 Raja’s Little Gallery
+    </button>
 
-  <button onclick="showSection('things')">
-    💫 Just Raja Things
-  </button>
+    <button onclick="showSection('things')">
+      💫 Just Raja Things
+    </button>
 
-  <button onclick="showSection('corner')">
-    🎂 Birthday Boy’s Corner
-  </button>
+    <button onclick="showSection('corner')">
+      🎂 Birthday Boy’s Corner
+    </button>
 
-  <button onclick="showSection('glimpse')">
-    🫶 A Little Glimpse of Raja
-  </button>
+    <button onclick="showSection('glimpse')">
+      🫶 A Little Glimpse of Raja
+    </button>
 
-  <button onclick="showSection('maincharacter')">
-    👑 Raja — The Main Character
-  </button>
+    <button onclick="showSection('maincharacter')">
+      👑 Raja — The Main Character
+    </button>
+
+  </div>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <div id="about" class="section">
+
+    <h2>✨ All About Raja ✨</h2>
+
+    <div class="text-box">
+
+      Raja — one of those people who can make ordinary moments special. 💗
+
+      <br><br>
+
+      A little crazy, a little annoying,
+      but genuinely unforgettable. 👑
+
+      <br><br>
+
+      Today is all about celebrating YOU! 🎂✨
 
     </div>
-    <!-- ALL ABOUT RAJA -->
-<div id="about" class="section">
-  <h2>✨ All About Raja ✨</h2>
-  <div class="text-box">
-    Raja — one of those people who can make ordinary moments special. 💗
-    <br><br>
-    A little crazy, a little annoying, but genuinely unforgettable. 👑
-    <br><br>
-    Today is all about celebrating YOU! 🎂✨
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
   </div>
-  <a href="#" class="back" onclick="showSection(''); return false;">← Back</a>
-</div>
 
 
-<!-- BIRTHDAY BOY -->
-<div id="birthday" class="section">
-  <h2>👑 The Birthday Boy — Raja</h2>
-  <div class="text-box">
-    🎂 Happy Birthday Raja! 🎉
-    <br><br>
-    Today the main character gets his own little corner. 👑✨
-    <br><br>
-    Keep smiling, keep shining and keep being the same amazing Raja. 🫶
+  <!-- ================= BIRTHDAY BOY ================= -->
+
+  <div id="birthday" class="section">
+
+    <h2>👑 The Birthday Boy — Raja</h2>
+
+    <div class="text-box">
+
+      🎂 Happy Birthday Raja! 🎉
+
+      <br><br>
+
+      Today the main character gets his own little corner. 👑✨
+
+      <br><br>
+
+      Keep smiling, keep shining
+      and keep being the same amazing Raja. 🫶
+
+    </div>
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
   </div>
-  <a href="#" class="back" onclick="showSection(''); return false;">← Back</a>
-</div>
 
 
-<!-- GALLERY -->
+  <!-- ================= GALLERY ================= -->
+
   <div id="gallery" class="section">
-  <h2>📸 Raja’s Little Gallery</h2>  
-    <div class="gallery"><img src="raja.jpg">
-<img src="raja1.jpg">
-<img src="raja2.jpg">
-<img src="raja3.jpg">
-<img src="raja6.jpg">
-<img src="raja7.jpg">
-<img src="raja8.jpg">
-<img src="raja11.jpg">
-<img src="raja12.jpg">
-<img src="raaj12.jpg">
-<img src="raja21.jpg">
-<img src="sanidhya.jpg">
-<img src="sanidhya2.jpg">
-<img src="sanidhya3.jpg">
 
-<video controls width="100%" style="border-radius:18px;">
-  <source src="raja16.mp4" type="video/mp4">
-</video>
+    <h2>📸 Raja’s Little Gallery</h2>
 
-<video controls width="100%" style="border-radius:18px;">
-  <source src="raja17.mp4" type="video/mp4">
-</video>
+    <div class="gallery">
 
-<video controls width="100%" style="border-radius:18px;">
-  <source src="raja18.mp4" type="video/mp4">
-</video>
+      <img src="raja.jpg">
+      <img src="raja1.jpg">
+      <img src="raja2.jpg">
+      <img src="raja3.jpg">
+      <img src="raja6.jpg">
+      <img src="raja7.jpg">
+      <img src="raja8.jpg">
+      <img src="raja11.jpg">
+      <img src="raja12.jpg">
+      <img src="raaj12.jpg">
+      <img src="raja21.jpg">
+      <img src="sanidhya.jpg">
+      <img src="sanidhya2.jpg">
+      <img src="sanidhya3.jpg">
 
-<video controls width="100%" style="border-radius:18px;">
-  <source src="raja19.mp4" type="video/mp4">
-</video>
-<video controls width="100%" style="border-radius:18px;">
-  <source src="raja23.mp4" type="video/mp4">
+      <video controls>
+        <source src="raja16.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="raja17.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="raja18.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="raja19.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="raja23.mp4" type="video/mp4">
       </video>
 
     </div>
 
-  <a href="#" class="back" onclick="showSection(''); return false;">
-    ← Back
-  </a>
-</div>
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
 
-
-<!-- JUST RAJA THINGS -->
-<div id="things" class="section">
-  <h2>💫 Just Raja Things</h2>
-  <div class="text-box">
-    😂 Raja being Raja.
-    <br><br>
-    The random moments, the stupid jokes, the unnecessary drama...
-    <br><br>
-    Basically, things that only Raja can do. 😭👑
   </div>
-  <a href="#" class="back" onclick="showSection(''); return false;">← Back</a>
-</div>
 
 
-<!-- BIRTHDAY BOY'S CORNER -->
-<div id="corner" class="section">
-  <h2>🎂 Birthday Boy’s Corner</h2>
-  <div class="text-box">
-    🎈 This corner belongs to the birthday boy!
-    <br><br>
-    Make a wish, eat some cake and enjoy your day. 🎂✨
-    <br><br>
-    You deserve all the happiness today. 🫶
+  <!-- ================= JUST RAJA THINGS ================= -->
+
+  <div id="things" class="section">
+
+    <h2>💫 Just Raja Things</h2>
+
+    <div class="text-box">
+
+      😂 Raja being Raja.
+
+      <br><br>
+
+      The random moments, the stupid jokes,
+      the unnecessary drama...
+
+      <br><br>
+
+      Basically, things that only Raja can do. 😭👑
+
+    </div>
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
   </div>
-  <a href="#" class="back" onclick="showSection(''); return false;">← Back</a>
-</div>
 
 
-<!-- A LITTLE GLIMPSE -->
-<div id="glimpse" class="section">
-  <h2>🫶 A Little Glimpse of Raja</h2>
-  <div class="text-box">
-    A few memories, a few smiles and a whole lot of Raja. 💗
-    <br><br>
-    Some people become memories...
-    and some become a part of them. ✨
+  <!-- ================= BIRTHDAY CORNER ================= -->
+
+  <div id="corner" class="section">
+
+    <h2>🎂 Birthday Boy’s Corner</h2>
+
+    <div class="text-box">
+
+      🎈 This corner belongs to the birthday boy!
+
+      <br><br>
+
+      Make a wish, eat some cake
+      and enjoy your day. 🎂✨
+
+      <br><br>
+
+      You deserve all the happiness today. 🫶
+
+    </div>
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
   </div>
-  <a href="#" class="back" onclick="showSection(''); return false;">← Back</a>
-</div>
-  <!-- MAIN CHARACTER -->
-<div id="maincharacter" class="section">
-  <h2>👑 Raja — The Main Character</h2>
 
-  <div class="text-box">
-    🎬 And today's main character is...
-    <br><br>
-    👑 RAJA 👑
-    <br><br>
-    Birthday mode: ON 🎂✨
-    <br>
-    Main character energy: 100% 💫
+
+  <!-- ================= GLIMPSE ================= -->
+
+  <div id="glimpse" class="section">
+
+    <h2>🫶 A Little Glimpse of Raja</h2>
+
+    <div class="text-box">
+
+      A few memories, a few smiles
+      and a whole lot of Raja. 💗
+
+      <br><br>
+
+      Some people become memories...
+      and some become a part of them. ✨
+
+    </div>
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
   </div>
-  <h2>🎵 Raja's Favorite Songs</h2>
-<div class="text-box">
 
-  <a href="https://www.youtube.com/watch?v=fPii4kwD7Zc"
-     target="_blank" class="song-card">
-    <span class="play-icon">▶️</span>
-    <span>Darkhaast</span>
-  </a>
 
-  <a href="https://www.youtube.com/watch?v=7OYNME0Y-hA"
-     target="_blank" class="song-card">
-    <span class="play-icon">▶️</span>
-    <span>Tu Jo Hai</span>
-  </a>
+  <!-- ================= MAIN CHARACTER ================= -->
 
-  <a href="https://www.youtube.com/watch?v=f8MvnCOKKHM"
-     target="_blank" class="song-card">
-    <span class="play-icon">▶️</span>
-    <span>English Medium — Sapna Choudhary</span>
-  </a>
+  <div id="maincharacter" class="section">
+
+    <h2>👑 Raja — The Main Character</h2>
+
+    <div class="text-box">
+
+      🎬 And today's main character is...
+
+      <br><br>
+
+      👑 RAJA 👑
+
+      <br><br>
+
+      Birthday mode: ON 🎂✨
+
+      <br>
+
+      Main character energy: 100% 💫
+
+    </div>
+
+
+    <h2>🎵 Raja's Favorite Songs</h2>
+
+    <div class="text-box">
+
+
+      <a
+        href="https://www.youtube.com/watch?v=fPii4kwD7Zc"
+        target="_blank"
+        class="song-card"
+      >
+
+        <span class="play-icon">▶️</span>
+
+        <span>Darkhaast</span>
+
+      </a>
+
+
+      <a
+        href="https://www.youtube.com/watch?v=7OYNME0Y-hA"
+        target="_blank"
+        class="song-card"
+      >
+
+        <span class="play-icon">▶️</span>
+
+        <span>Tu Jo Hai</span>
+
+      </a>
+
+
+      <a
+        href="https://www.youtube.com/watch?v=f8MvnCOKKHM"
+        target="_blank"
+        class="song-card"
+      >
+
+        <span class="play-icon">▶️</span>
+
+        <span>English Medium — Sapna Choudhary</span>
+
+      </a>
+
+    </div>
+
+
+    <a href="#" class="back"
+       onclick="showSection(''); return false;">
+      ← Back
+    </a>
+
+  </div>
 
 </div>
 
-  <a href="#" class="back" onclick="showSection(''); return false;">
-    ← Back
-  </a>
-</div>
-  <script>
-function showSection(id) {
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* Surprise screen navigation */
+
+function next(id){
+
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+}
+
+
+/* Open Raja's main website */
+
+function openWebsite(){
+
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+
+  document.getElementById("mainWebsite").classList.add("active");
+
+}
+
+
+/* Raja menu sections */
+
+function showSection(id){
+
   document.querySelectorAll('.section').forEach(section => {
     section.classList.remove('active');
   });
 
-  if (id) {
+  if(id){
     document.getElementById(id).classList.add('active');
   }
+
 }
-  </script>
-  </div>
+
+
+/* Photo slider */
+
+const photos = [
+
+  "Screenshot_20260902_102924_Instagram.jpg",
+
+  "Screenshot_20260902_102937_Instagram.jpg",
+
+  "Screenshot_20260902_103050_Instagram.jpg",
+
+  "Snapchat-1723846456.jpg",
+
+  "Snapchat-200234848.jpg",
+
+  "Snapchat-371472187.jpg",
+
+  "Screenshot_20260902_102920_Instagram.jpg",
+
+  "Screenshot_20260902_102914_Instagram.jpg",
+
+  "Screenshot_20260902_102907_Instagram.jpg"
+
+];
+
+
+let currentPhoto = 0;
+
+
+function showPhoto(){
+
+  document.getElementById("memoryPhoto").src =
+    photos[currentPhoto];
+
+  document.getElementById("photoNumber").innerText =
+    currentPhoto + 1;
+
+}
+
+
+function nextPhoto(){
+
+  currentPhoto++;
+
+  if(currentPhoto >= photos.length){
+    currentPhoto = 0;
+  }
+
+  showPhoto();
+
+}
+
+
+function previousPhoto(){
+
+  currentPhoto--;
+
+  if(currentPhoto < 0){
+    currentPhoto = photos.length - 1;
+  }
+
+  showPhoto();
+
+}
+
+
+/* Floating hearts */
+
+function createHeart(){
+
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+
+  heart.innerHTML = [
+    "💗",
+    "💕",
+    "💖",
+    "💘",
+    "❤️",
+    "💞"
+  ][Math.floor(Math.random() * 6)];
+
+  heart.style.left =
+    Math.random() * 100 + "vw";
+
+  heart.style.animationDuration =
+    (3 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  },6000);
+
+}
+
+
+setInterval(createHeart,700);
+
+</script>
+
 </body>
 </html>
-
-    
