@@ -298,6 +298,124 @@ button:active{
   }
 }
 
+/* ================= CUTE FINAL ANIMATION ================= */
+
+.final-pandas{
+  display:flex;
+  justify-content:center;
+  gap:55px;
+  margin-bottom:5px;
+}
+
+.panda{
+  font-size:65px;
+  animation:pandaFloat 2s ease-in-out infinite;
+}
+
+.panda-right{
+  animation-delay:.3s;
+}
+
+@keyframes pandaFloat{
+  0%,100%{
+    transform:translateY(0) rotate(0deg);
+  }
+  50%{
+    transform:translateY(-14px) rotate(4deg);
+  }
+}
+
+.final-sparkles{
+  font-size:22px;
+  margin:5px 0 12px;
+  animation:sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle{
+  50%{
+    transform:scale(1.15);
+    opacity:.7;
+  }
+}
+
+.final-title{
+  animation:titlePop .8s ease;
+}
+
+@keyframes titlePop{
+  from{
+    opacity:0;
+    transform:translateY(20px) scale(.8);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.final-card{
+  background:#ffffffbb;
+  backdrop-filter:blur(12px);
+  border-radius:28px;
+  padding:25px 20px;
+  width:100%;
+  box-shadow:0 12px 35px #0002;
+  animation:cardAppear 1s ease .2s both;
+}
+
+@keyframes cardAppear{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.9);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.final-heart{
+  font-size:45px;
+  margin-bottom:10px;
+  animation:heartBeat 1.2s infinite;
+}
+
+@keyframes heartBeat{
+  0%,100%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.25);
+  }
+}
+
+.mini-pandas{
+  font-size:25px;
+  margin:15px 0 5px;
+  animation:miniBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes miniBounce{
+  50%{
+    transform:translateY(-6px);
+  }
+}
+
+.world-btn{
+  animation:buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow{
+  50%{
+    transform:scale(1.04);
+    box-shadow:0 8px 25px #ff70a666;
+  }
+}
+
+.replay-btn{
+  background:#ffffff;
+  color:#7b315d;
+    }
 </style>
 </head>
 
@@ -465,32 +583,57 @@ button:active{
 
 <section class="screen" id="final">
 
-  <div class="emoji">❤️</div>
+  <div class="final-pandas">
+    <div class="panda panda-left">🐼</div>
+    <div class="panda panda-right">🐼</div>
+  </div>
 
-  <h1>You are truly special 💗</h1>
+  <div class="final-sparkles">
+    ✨　💗　✨
+  </div>
 
-  <div class="card">
+  <h1 class="final-title">
+    One last thing... 💌
+  </h1>
+
+  <div class="final-card">
+
+    <div class="final-heart">💗</div>
 
     <p>
-      Thank you for being such a beautiful part of my life.
+      Some people make ordinary days
+      feel a little more special. ✨
       <br><br>
-      Stay happy, keep smiling,
-      and never forget how special you are. 🫶
+
+      And honestly, you're one of those people. 🫶
       <br><br>
-      <b>Lots of love ❤️</b>
+
+      So on your birthday,
+      I just hope you keep smiling,
+      keep laughing,
+      and keep being YOU. 🌷
+      <br><br>
+
+      <b>Happy Birthday, Raja! 🎂👑</b>
     </p>
 
   </div>
 
-  <button onclick="openWebsite()">
-    Enter Raja's World 👑
+  <div class="mini-pandas">
+    🐼 💕 🐼 💕 🐼
+  </div>
+
+  <button class="world-btn" onclick="openWebsite()">
+    ✨ Enter Raja's World 👑
   </button>
 
-  <button onclick="location.reload()">
-    Replay 🔄
+  <button class="replay-btn" onclick="location.reload()">
+    🔄 Replay Surprise
   </button>
 
 </section>
+
+
 
 
 <!-- ================================================= -->
