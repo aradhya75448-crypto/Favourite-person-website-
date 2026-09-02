@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Raja 👑 | Birthday Surprise</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe6f2, #e9e2ff);
+  color: #333;
+  text-align: center;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px 15px 50px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.menu {
+  display: grid;
+  gap: 13px;
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.menu button {
+  border: none;
+  padding: 16px;
+  border-radius: 18px;
+  background: white;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.menu button:active {
+  transform: scale(0.98);
+}
+
+.section {
+  display: none;
+  margin-top: 25px;
+}
+
+.section.active {
+  display: block;
+}
+
+.section h2 {
+  font-size: 24px;
+}
+
+.text-box {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 15px auto;
+  max-width: 650px;
+  line-height: 1.6;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: white;
+  border-radius: 18px;
+  padding: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+}
+
+.share {
+  margin-top: 25px;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 25px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+.back {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 22px;
+  background: white;
+  color: #333;
+  text-decoration: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    height: 300px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>👑 The Birthday Boy — Raja 🎂</h1>
+
+  <p class="subtitle">
+    A little corner made specially for Raja 💗✨
+  </p>
+
+  <div class="menu">
+
+    <button onclick="showSection('about')">
+      ✨ All About Raja ✨
+    </button>
+
+    <button onclick
