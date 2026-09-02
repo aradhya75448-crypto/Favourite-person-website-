@@ -131,6 +131,40 @@ h1 {
   transition: 0.2s;
 }
 
+.song-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 15px 18px;
+  margin: 12px auto;
+  max-width: 500px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #333;
+  font-size: 17px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.song-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+}
+
+.play-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f3e8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
 .song-card:active {
   transform: scale(0.97);
 }
