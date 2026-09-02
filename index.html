@@ -6,11 +6,7 @@
 <title>For My Favourite Person 💗</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   min-height:100vh;
@@ -24,9 +20,9 @@ body{
 
 .screen{
   width:100%;
-  max-width:500px;
+  max-width:520px;
   min-height:100vh;
-  padding:30px 20px;
+  padding:25px 18px;
   display:none;
   flex-direction:column;
   justify-content:center;
@@ -35,9 +31,7 @@ body{
   animation:fade .6s ease;
 }
 
-.screen.active{
-  display:flex;
-}
+.screen.active{display:flex}
 
 @keyframes fade{
   from{opacity:0;transform:scale(.9)}
@@ -45,8 +39,8 @@ body{
 }
 
 .emoji{
-  font-size:90px;
-  margin-bottom:20px;
+  font-size:85px;
+  margin-bottom:15px;
   animation:bounce 1.5s infinite;
 }
 
@@ -56,21 +50,21 @@ body{
 
 h1{
   color:#7b315d;
-  font-size:32px;
-  margin-bottom:15px;
+  font-size:30px;
+  margin-bottom:14px;
 }
 
 p{
   color:#59384a;
-  font-size:18px;
+  font-size:17px;
   line-height:1.6;
-  margin-bottom:25px;
+  margin-bottom:22px;
 }
 
 button{
   border:0;
-  padding:14px 28px;
-  margin:8px;
+  padding:14px 27px;
+  margin:7px;
   border-radius:30px;
   font-size:17px;
   font-weight:bold;
@@ -80,41 +74,47 @@ button{
   box-shadow:0 5px 15px #0002;
 }
 
-button:active{
-  transform:scale(.94);
-}
+.no{background:#999}
 
-.no{
-  background:#999;
+.card{
+  background:#ffffffaa;
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:22px;
+  width:100%;
+  box-shadow:0 10px 30px #0002;
 }
 
 .penguins{
   display:flex;
-  gap:12px;
-  margin:20px 0;
+  gap:10px;
+  margin:18px 0;
 }
 
 .penguin{
   background:white;
   border-radius:20px;
   padding:18px 12px;
-  font-size:55px;
+  font-size:52px;
   cursor:pointer;
   box-shadow:0 5px 15px #0002;
-  transition:.3s;
 }
 
-.penguin:hover{
-  transform:translateY(-10px) scale(1.05);
-}
-
-.card{
-  background:#ffffffaa;
-  backdrop-filter:blur(10px);
-  border-radius:25px;
-  padding:25px;
+.photo{
   width:100%;
-  box-shadow:0 10px 30px #0002;
+  max-width:330px;
+  height:330px;
+  object-fit:cover;
+  border-radius:22px;
+  background:white;
+  padding:7px;
+  box-shadow:0 8px 25px #0003;
+}
+
+.counter{
+  margin-top:12px;
+  font-size:15px;
+  color:#7b315d;
 }
 
 .heart{
@@ -131,106 +131,88 @@ button:active{
     opacity:0;
   }
 }
-
-.photo{
-  width:180px;
-  height:180px;
-  border-radius:25px;
-  object-fit:cover;
-  background:#fff;
-  padding:8px;
-  box-shadow:0 8px 20px #0002;
-  margin-bottom:20px;
-}
 </style>
 </head>
 
 <body>
 
-<!-- SCREEN 1 -->
 <section class="screen active" id="s1">
   <div class="emoji">🎁</div>
   <h1>I have a surprise for you...</h1>
   <p>But first, you have to accept this little gift 💗</p>
-
   <button onclick="next('s2')">YES! 🎀</button>
   <button class="no" onclick="next('no')">NO 😭</button>
 </section>
 
-<!-- NO SCREEN -->
 <section class="screen" id="no">
   <div class="emoji">🥺</div>
   <h1>Are you sure?</h1>
-  <p>That button was definitely the wrong choice 😭</p>
+  <p>That was definitely the wrong button 😭</p>
   <button onclick="next('s2')">Okay okay! 💗</button>
 </section>
 
-<!-- SCREEN 2 -->
 <section class="screen" id="s2">
   <div class="emoji">🐧</div>
   <h1>Choose your penguin!</h1>
   <p>One of them has your surprise 👀</p>
 
   <div class="penguins">
-    <div class="penguin" onclick="penguin()">🐧</div>
-    <div class="penguin" onclick="penguin()">🐧</div>
-    <div class="penguin" onclick="penguin()">🐧</div>
+    <div class="penguin" onclick="next('s3')">🐧</div>
+    <div class="penguin" onclick="next('s3')">🐧</div>
+    <div class="penguin" onclick="next('s3')">🐧</div>
   </div>
 </section>
 
-<!-- SCREEN 3 -->
 <section class="screen" id="s3">
   <div class="emoji">🎂</div>
   <h1>HAPPY BIRTHDAY! 🎉</h1>
   <p>
     To one of the most special people in my life. 💗<br>
-    I hope your day is as amazing as you are!
+    I hope your day is full of happiness and smiles!
   </p>
-
-  <button onclick="next('s4')">There's more 👀</button>
+  <button onclick="next('photos')">Look at our memories 📸</button>
 </section>
 
-<!-- SCREEN 4 -->
-<section class="screen" id="s4">
-  <div class="emoji">📸</div>
-  <h1>Our Little Memories 💕</h1>
+<section class="screen" id="photos">
+  <h1>Our Memories 💕</h1>
+  <p>Every picture has a little story. 🫶</p>
 
   <div class="card">
-    <p>
-      Every picture has a story,<br>
-      and every memory is special. 🫶
-    </p>
+    <img id="memoryPhoto" class="photo"
+      src="Screenshot_20260902_102924_Instagram.jpg">
 
-    <!-- बाद में यहाँ अपनी photo लगा सकते हो -->
-    <div class="photo" style="display:flex;align-items:center;justify-content:center;font-size:55px;">
-      📷
+    <div class="counter">
+      <span id="photoNumber">1</span> / 9
     </div>
 
-    <button onclick="next('s5')">Next memory 💗</button>
+    <div>
+      <button onclick="previousPhoto()">⬅️</button>
+      <button onclick="nextPhoto()">➡️</button>
+    </div>
+
+    <button onclick="next('hug')">Continue 💗</button>
   </div>
 </section>
 
-<!-- SCREEN 5 -->
-<section class="screen" id="s5">
+<section class="screen" id="hug">
   <div class="emoji">🫂</div>
-  <h1>Sending you a BIG hug!</h1>
+  <h1>A BIG HUG FOR YOU!</h1>
   <p>
-    Since I can't put this hug inside a website...<br>
-    you'll have to imagine it. 🥹💗
+    Sending you the biggest virtual hug ever. 🥹💗
+    <br><br>
+    Keep smiling always!
   </p>
 
-  <button onclick="next('s6')">One last thing... 👀</button>
+  <button onclick="next('final')">One last thing... 👀</button>
 </section>
 
-<!-- FINAL SCREEN -->
-<section class="screen" id="s6">
+<section class="screen" id="final">
   <div class="emoji">❤️</div>
-
   <h1>You are truly special 💗</h1>
 
   <div class="card">
     <p>
-      Thank you for being a beautiful part of my life.
+      Thank you for being such a beautiful part of my life.
       <br><br>
       Stay happy, keep smiling,
       and never forget how special you are. 🫶
@@ -243,30 +225,378 @@ button:active{
 </section>
 
 <script>
+
+const photos = [
+"Screenshot_20260902_102924_Instagram.jpg",
+"Screenshot_20260902_102937_Instagram.jpg",
+"Screenshot_20260902_103050_Instagram.jpg",
+"Snapchat-1723846456.jpg",
+"Snapchat-200234848.jpg",
+"Snapchat-371472187.jpg",
+"Screenshot_20260902_102920_Instagram.jpg",
+"Screenshot_20260902_102914_Instagram.jpg",
+"Screenshot_20260902_102907_Instagram.jpg"
+];
+
+let currentPhoto = 0;
+
 function next(id){
-  document.querySelectorAll('.screen').forEach(s=>{
-    s.classList.remove('active');
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
   });
 
-  document.getElementById(id).classList.add('active');
+  document.getElementById(id).classList.add("active");
 }
 
-function penguin(){
-  next('s3');
+function showPhoto(){
+  document.getElementById("memoryPhoto").src = photos[currentPhoto];
+  document.getElementById("photoNumber").innerText = currentPhoto + 1;
+}
+
+function nextPhoto(){
+  currentPhoto++;
+
+  if(currentPhoto >= photos.length){
+    currentPhoto = 0;
+  }
+
+  showPhoto();
+}
+
+function previousPhoto(){
+  currentPhoto--;
+
+  if(currentPhoto < 0){
+    currentPhoto = photos.length - 1;
+  }
+
+  showPhoto();
 }
 
 function createHeart(){
-  const heart=document.createElement('div');
-  heart.className='heart';
-  heart.innerHTML=['💗','💕','💖','💘','❤️'][Math.floor(Math.random()*5)];
-  heart.style.left=Math.random()*100+'vw';
-  heart.style.animationDuration=(3+Math.random()*3)+'s';
+  const heart=document.createElement("div");
+
+  heart.className="heart";
+
+  heart.innerHTML=[
+    "💗","💕","💖","💘","❤️","💞"
+  ][Math.floor(Math.random()*6)];
+
+  heart.style.left=Math.random()*100+"vw";
+
+  heart.style.animationDuration=
+    (3+Math.random()*3)+"s";
+
   document.body.appendChild(heart);
 
-  setTimeout(()=>heart.remove(),6000);
+  setTimeout(()=>{
+    heart.remove();
+  },6000);
 }
 
 setInterval(createHeart,700);
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favourite Person 💗</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  min-height:100vh;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd6e7,#e7d7ff,#d7f3ff);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.screen{
+  width:100%;
+  max-width:520px;
+  min-height:100vh;
+  padding:25px 18px;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation:fade .6s ease;
+}
+
+.screen.active{display:flex}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+
+.emoji{
+  font-size:85px;
+  margin-bottom:15px;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  50%{transform:translateY(-12px)}
+}
+
+h1{
+  color:#7b315d;
+  font-size:30px;
+  margin-bottom:14px;
+}
+
+p{
+  color:#59384a;
+  font-size:17px;
+  line-height:1.6;
+  margin-bottom:22px;
+}
+
+button{
+  border:0;
+  padding:14px 27px;
+  margin:7px;
+  border-radius:30px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:#ff70a6;
+  color:white;
+  box-shadow:0 5px 15px #0002;
+}
+
+.no{background:#999}
+
+.card{
+  background:#ffffffaa;
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  padding:22px;
+  width:100%;
+  box-shadow:0 10px 30px #0002;
+}
+
+.penguins{
+  display:flex;
+  gap:10px;
+  margin:18px 0;
+}
+
+.penguin{
+  background:white;
+  border-radius:20px;
+  padding:18px 12px;
+  font-size:52px;
+  cursor:pointer;
+  box-shadow:0 5px 15px #0002;
+}
+
+.photo{
+  width:100%;
+  max-width:330px;
+  height:330px;
+  object-fit:cover;
+  border-radius:22px;
+  background:white;
+  padding:7px;
+  box-shadow:0 8px 25px #0003;
+}
+
+.counter{
+  margin-top:12px;
+  font-size:15px;
+  color:#7b315d;
+}
+
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:25px;
+  animation:float 5s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes float{
+  to{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="screen active" id="s1">
+  <div class="emoji">🎁</div>
+  <h1>I have a surprise for you...</h1>
+  <p>But first, you have to accept this little gift 💗</p>
+  <button onclick="next('s2')">YES! 🎀</button>
+  <button class="no" onclick="next('no')">NO 😭</button>
+</section>
+
+<section class="screen" id="no">
+  <div class="emoji">🥺</div>
+  <h1>Are you sure?</h1>
+  <p>That was definitely the wrong button 😭</p>
+  <button onclick="next('s2')">Okay okay! 💗</button>
+</section>
+
+<section class="screen" id="s2">
+  <div class="emoji">🐧</div>
+  <h1>Choose your penguin!</h1>
+  <p>One of them has your surprise 👀</p>
+
+  <div class="penguins">
+    <div class="penguin" onclick="next('s3')">🐧</div>
+    <div class="penguin" onclick="next('s3')">🐧</div>
+    <div class="penguin" onclick="next('s3')">🐧</div>
+  </div>
+</section>
+
+<section class="screen" id="s3">
+  <div class="emoji">🎂</div>
+  <h1>HAPPY BIRTHDAY! 🎉</h1>
+  <p>
+    To one of the most special people in my life. 💗<br>
+    I hope your day is full of happiness and smiles!
+  </p>
+  <button onclick="next('photos')">Look at our memories 📸</button>
+</section>
+
+<section class="screen" id="photos">
+  <h1>Our Memories 💕</h1>
+  <p>Every picture has a little story. 🫶</p>
+
+  <div class="card">
+    <img id="memoryPhoto" class="photo"
+      src="Screenshot_20260902_102924_Instagram.jpg">
+
+    <div class="counter">
+      <span id="photoNumber">1</span> / 9
+    </div>
+
+    <div>
+      <button onclick="previousPhoto()">⬅️</button>
+      <button onclick="nextPhoto()">➡️</button>
+    </div>
+
+    <button onclick="next('hug')">Continue 💗</button>
+  </div>
+</section>
+
+<section class="screen" id="hug">
+  <div class="emoji">🫂</div>
+  <h1>A BIG HUG FOR YOU!</h1>
+  <p>
+    Sending you the biggest virtual hug ever. 🥹💗
+    <br><br>
+    Keep smiling always!
+  </p>
+
+  <button onclick="next('final')">One last thing... 👀</button>
+</section>
+
+<section class="screen" id="final">
+  <div class="emoji">❤️</div>
+  <h1>You are truly special 💗</h1>
+
+  <div class="card">
+    <p>
+      Thank you for being such a beautiful part of my life.
+      <br><br>
+      Stay happy, keep smiling,
+      and never forget how special you are. 🫶
+      <br><br>
+      <b>Lots of love ❤️</b>
+    </p>
+  </div>
+
+  <button onclick="location.reload()">Replay 🔄</button>
+</section>
+
+<script>
+
+const photos = [
+"Screenshot_20260902_102924_Instagram.jpg",
+"Screenshot_20260902_102937_Instagram.jpg",
+"Screenshot_20260902_103050_Instagram.jpg",
+"Snapchat-1723846456.jpg",
+"Snapchat-200234848.jpg",
+"Snapchat-371472187.jpg",
+"Screenshot_20260902_102920_Instagram.jpg",
+"Screenshot_20260902_102914_Instagram.jpg",
+"Screenshot_20260902_102907_Instagram.jpg"
+];
+
+let currentPhoto = 0;
+
+function next(id){
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+}
+
+function showPhoto(){
+  document.getElementById("memoryPhoto").src = photos[currentPhoto];
+  document.getElementById("photoNumber").innerText = currentPhoto + 1;
+}
+
+function nextPhoto(){
+  currentPhoto++;
+
+  if(currentPhoto >= photos.length){
+    currentPhoto = 0;
+  }
+
+  showPhoto();
+}
+
+function previousPhoto(){
+  currentPhoto--;
+
+  if(currentPhoto < 0){
+    currentPhoto = photos.length - 1;
+  }
+
+  showPhoto();
+}
+
+function createHeart(){
+  const heart=document.createElement("div");
+
+  heart.className="heart";
+
+  heart.innerHTML=[
+    "💗","💕","💖","💘","❤️","💞"
+  ][Math.floor(Math.random()*6)];
+
+  heart.style.left=Math.random()*100+"vw";
+
+  heart.style.animationDuration=
+    (3+Math.random()*3)+"s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },6000);
+}
+
+setInterval(createHeart,700);
+
 </script>
 
 </body>
